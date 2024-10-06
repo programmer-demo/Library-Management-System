@@ -66,8 +66,8 @@
                             </td>
                             <td>{{ $user->created_at }}</td>
                             <td>
-                                <a class="btn btn-outline-primary" href="#">Edit</a>
-                                <a class="btn btn-outline-danger" href="#">Delete</a>
+                                <a class="btn btn-outline-primary" href="{{ route('user.edit' , $user->id) }}">Edit</a>
+                                <a class="btn btn-outline-danger" href="{{ route('user.destroy' , $user->id) }}">Delete</a>
                             </td>
                         </tr>
                       @endforeach

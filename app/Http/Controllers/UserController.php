@@ -67,7 +67,11 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        if(!session()->has('login')){
+            return redirect()->route('login');
+        }
+        $user = User::find($id);
+        return view('users.edit' , compact('user'));
     }
 
     /**
@@ -75,7 +79,28 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if(!session()->has('login')){
+            return redirect()->route('login');
+        }
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'userType' => 'required',
+        ]);
+
+        $user = User::find($id);
+        $password = $user->password;
+        if($request->password){
+            $password = $request->password;
+        }
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'userType' => $request->userType,
+            'password' => $password,
+        ]);
+        return redirect()->route('user.index')->with('success' , 'User Updated Successfully');
     }
 
     /**
@@ -83,6 +108,10 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id);
+        if($user){
+            $user->delete();
+        }
+        return redirect()->route('user.index')->with('success' , 'User Deleted Successfully');
     }
 }
