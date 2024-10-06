@@ -68,9 +68,13 @@
                                 @endif
                             </td>
                             <td>{{ $user->created_at }}</td>
-                            <td>
-                                <a class="btn btn-outline-primary" href="{{ route('user.edit' , $user->id) }}">Edit</a>
-                                <a class="btn btn-outline-danger" href="{{ route('user.destroy' , $user->id) }}">Delete</a>
+                            <td class="d-flex">
+                                <a class="btn btn-outline-primary" href="{{ route('user.edit' , $user->id) }}" style="margin-right: 10px !important">Edit</a>
+                                <form action="{{ route('user.destroy' , $user->id) }}" method="POST">
+                                    <button type="submit" class="btn btn-outline-danger ml-4">Delete</button>
+                                    @method('DELETE')
+                                    @csrf
+                                </form>
                             </td>
                         </tr>
                       @endforeach

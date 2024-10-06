@@ -6,7 +6,7 @@
         setTimeout(function(){
             const div = document.getElementById("alerts")
             div.style.display = "none";
-        },4000);
+        },3000);
     </script>
 @endif
  <!--fail-->
