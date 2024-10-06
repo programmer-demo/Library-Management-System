@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-6 mt-4">
                             <label for="password" class="mb-2">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
                         </div>
                     </div>
                     <div class="row text-end mt-4">

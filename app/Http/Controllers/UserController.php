@@ -100,6 +100,7 @@ class UserController extends Controller
             'userType' => $request->userType,
             'password' => $password,
         ]);
+        session()->put('success' , 'success');
         return redirect()->route('user.index')->with('success' , 'User Updated Successfully');
     }
 
