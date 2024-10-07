@@ -9,7 +9,7 @@
     <a class="list-group-item btn btn-primary alert alert-primary
         {{ Request::path() == '/' ? 'active' : '' }}" href="{{ route('index') }}">Home</a>
     <a class="list-group-item btn btn-primary alert alert-primary
-        {{ Request::path() == 'student' ? 'active' : '' }}" href="{{ route('student.index') }}">Borrow</a>
+        {{ Request::path() == 'borrow' ? 'active' : '' }}" href="{{ route('borrow.index') }}">Borrow</a>
     <a class="list-group-item btn btn-primary alert alert-primary
         {{ Request::path() == 'book' ? 'active' : '' }}" href="{{ route('book.index') }}">Book</a>
     @if (session()->has('type'))
