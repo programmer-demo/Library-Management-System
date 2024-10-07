@@ -10,7 +10,7 @@ class Book extends Model
 {
     use HasFactory,SoftDeletes;
     protected $fillable = [
-        'name','book_type_id'
+        'name', 'barcode' , 'author' , 'written_in'
     ];
 
     public function bookType(){
@@ -19,5 +19,8 @@ class Book extends Model
 
     public function author(){
         return $this->hasMany(Author::class);
+    }
+    public function borrow(){
+        return $this->belongsTo(Borrow::class);
     }
 }

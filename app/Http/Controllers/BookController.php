@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BookController extends Controller
 {
@@ -11,7 +12,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::get();
+        return view('books.index' , compact('books'));
     }
 
     /**
@@ -19,7 +21,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
@@ -27,7 +29,24 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'barcode' => 'required',
+            'name' => 'required',
+            'author' => 'required',
+            'written_in' => 'requrired',
+        ]);
+
+        $datetime = date('d-m-y H:i:s' , $request->written_in);
+
+        $book = Book::create([
+            'barcode' => $request->barcode,
+            'name' => $request->name,
+            'author' => $request->author,
+            'written_in' => $datetime,
+        ]);
+
+        return redirect()->route('book.index')->with('success' , 'Book Created Successfully');
+
     }
 
     /**
@@ -43,7 +62,8 @@ class BookController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::find($id);
+        return view('books.edit' , compact('book'));
     }
 
     /**
@@ -51,7 +71,25 @@ class BookController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'barcode' => 'required',
+            'name' => 'required',
+            'author' => 'required',
+            'written_in' => 'requrired',
+        ]);
+
+        $datetime = date('d-m-y H:i:s' , $request->written_in);
+
+        $book = Book::find($id);
+
+        $book->update([
+            'barcode' => $request->barcode,
+            'name' => $request->name,
+            'author' => $request->author,
+            'written_in' => $datetime,
+        ]);
+
+        return redirect()->route('book.index')->with('success' , 'Book Updated Successfully');
     }
 
     /**
@@ -59,6 +97,10 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $book = Book::find($id);
+        if($book){
+            $book->delete();
+        }
+        return redirect()->route('book.index')->with('success' , 'Book Deleted Successfully');
     }
 }

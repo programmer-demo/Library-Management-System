@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('/' , [HomeController::class , 'index'])->name('index');
     Route::resource('/user' , UserController::class);
     Route::resource('/student' , StudentController::class);
-    Route::resource('/author' , AuthorController::class);
-    Route::resource('/faculty' , FacultyController::class);
     Route::resource('/book' , BookController::class);
-    Route::resource('/book-type' , BookTypeController::class);
 
 

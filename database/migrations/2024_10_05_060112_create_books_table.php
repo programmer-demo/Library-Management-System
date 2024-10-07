@@ -14,11 +14,6 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->unsignedBigInteger('book_type_id')->unsigned()
-                ->foreign('book_type_id')
-                ->references('id')
-                ->on('book_types')
-                ->onDelete('no action');
             $table->softDeletes();
             $table->timestamps();
         });
