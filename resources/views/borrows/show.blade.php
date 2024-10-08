@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Borrow Page</title>
+    <title>Book Borrow Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
         crossorigin="anonymous">
@@ -32,43 +32,36 @@
             </div>
             <div class="col-10">
               <h5 class="alert alert-success text-center" role="alert">
-                Borrow Page
+                Book Borrow Page
               </h5>
               <div class="card card-body">
                 <div class="text-end mb-3">
-                    <a class="btn btn-sm btn-primary" href="{{ route('borrow.create') }}">Add New</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('borrow.add' , $id) }}">Add New</a>
                 </div>
                 @include('alert')
                 <div class="table-responsive">
-                  <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">ID Card</th>
+                          <th scope="col">Bar Code</th>
                           <th scope="col">Name</th>
-                          <th scope="col">Gender</th>
-                          <th scope="col">Faculty</th>
-                          <th scope="col">Borrow Date</th>
+                          <th scope="col">Author</th>
+                          <th scope="col">Written In</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($borrows as $index => $borrow)
+                        @foreach ($books as $index => $book)
                           <tr>
                               <th scope="row">{{ $index+1 }}</th>
-                              <td>{{ $borrow->student_idcard }}</td>
-                              <td>{{ $borrow->student_name }}</td>
-                              <td>{{$borrow->student_gender}}</td>
-                              <td>{{$borrow->student_faculty}}</td>
-                              <td>{{$borrow->created_at}}</td>
+                              <td>{{ $book->barcode }}</td>
+                              <td>{{ $book->name }}</td>
+                              <td>{{$book->author}}</td>
+                              <td>{{$book->written_in}}</td>
                               <td class="d-flex">
-                                <a class="btn btn-sm btn-outline-info" href="{{ route('borrow.show' , $borrow->id) }}" style="margin-right: 10px !important">Detail</a>
-                                  <a class="btn btn-sm btn-outline-primary" href="{{ route('borrow.edit' , $borrow->id) }}" style="margin-right: 10px !important">Edit</a>
-                                  <form action="{{ route('borrow.destroy' , $borrow->id) }}" method="POST">
-                                      <button type="submit" class="btn btn-sm btn-outline-danger ml-4" onclick="return confirm('Sure ? You Want to Delete')">Delete</button>
-                                      @method('DELETE')
-                                      @csrf
-                                  </form>
+                                  <a class="btn btn-sm btn-outline-primary" href="#" style="margin-right: 10px !important">Refund</a>
+                                
                               </td>
                           </tr>
                         @endforeach

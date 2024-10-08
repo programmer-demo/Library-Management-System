@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Borrow;
+use App\Models\Book;
 
 class BorrowController extends Controller
 {
@@ -21,7 +22,8 @@ class BorrowController extends Controller
      */
     public function create()
     {
-        //
+        $books = Book::get();
+        return view('borrows.create' , compact('books'));
     }
 
     /**
@@ -29,7 +31,22 @@ class BorrowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'student_idcard' => 'required',
+            'student_name' => 'required',
+            'student_gender' => 'required',
+            'student_faculty' => 'required',
+            'book_id' => 'required',
+        ]);
+
+        $borrow = Borrow::create([
+            'student_idcard' => $request->student_idcard,
+            'student_name' => $request->student_name,
+            'student_gender' => $request->student_gender,
+            'student_faculty' => $request->student_faculty,
+            'book_id' => $request->book_id,
+        ]);
+        return redirect()->route('borrow.index')->with('success' , 'Student is Borrow Successfully');
     }
 
     /**
@@ -37,7 +54,8 @@ class BorrowController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $books = Book::where('borrow_id' , $id)->get();
+        return view('borrows.show' , compact('books' , 'id'));
     }
 
     /**
@@ -45,7 +63,8 @@ class BorrowController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $borrow = Borrow::first();
+        return view('borrows.edit' , compact('borrow'));
     }
 
     /**
@@ -53,7 +72,23 @@ class BorrowController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'student_idcard' => 'required',
+            'student_name' => 'required',
+            'student_gender' => 'required',
+            'student_faculty' => 'required',
+            'book_id' => 'required',
+        ]);
+
+        $borrow = Borrow::find($id);
+        $borrow->update([
+            'student_idcard' => $request->student_idcard,
+            'student_name' => $request->student_name,
+            'student_gender' => $request->student_gender,
+            'student_faculty' => $request->student_faculty,
+            'book_id' => $request->book_id,
+        ]);
+        return redirect()->route('borrow.index')->with('success' , 'Updated Successfully');
     }
 
     /**
@@ -61,6 +96,19 @@ class BorrowController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $borrow = Borrow::find($id);
+        return redirect()->route('borrow.index')->with('success' , 'Deleted Successfully');
+    }
+
+    public function add(Request $request ,$id){
+        $request->validate([
+            'book_id' => 'required',
+        ]);
+
+        $book = Book::find($id);
+        $book->borrow_id = $id;
+        $book->status = false;
+        $book->save();
+        return redirect()->route('borrow.show' , $id)->with('success' , 'Student is Borrow Successfully');
     }
 }

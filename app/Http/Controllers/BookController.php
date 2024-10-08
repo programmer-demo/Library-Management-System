@@ -43,6 +43,7 @@ class BookController extends Controller
             'name' => $request->name,
             'author' => $request->author,
             'written_in' => $datetime,
+            'active' => $request->status,
         ]);
 
         return redirect()->route('book.index')->with('success' , 'Book Created Successfully');
@@ -87,6 +88,7 @@ class BookController extends Controller
             'name' => $request->name,
             'author' => $request->author,
             'written_in' => $datetime,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('book.index')->with('success' , 'Book Updated Successfully');

@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
     Route::resource('/student' , StudentController::class);
     Route::resource('/book' , BookController::class);
     Route::resource('/borrow' , BorrowController::class);
+    Route::get('/borrow/add/{id}' , [BorrowController::class , 'add'])->name('borrow.add');
 
 

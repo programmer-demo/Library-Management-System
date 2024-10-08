@@ -40,13 +40,14 @@
                 </div>
                 @include('alert')
                 <div class="table-responsive">
-                  <table class="table table-bordered table-success">
+                  <table class="table table-striped table-hover">
                       <thead>
                         <tr>
                           <th scope="col">#</th>
                           <th scope="col">Bar Code</th>
                           <th scope="col">Name</th>
                           <th scope="col">Author</th>
+                          <th scope="col">Status</th>
                           <th scope="col">Written In</th>
                           <th scope="col">Action</th>
                         </tr>
@@ -58,6 +59,13 @@
                               <td>{{ $book->barcode }}</td>
                               <td>{{ $book->name }}</td>
                               <td>{{$book->author}}</td>
+                              <td>
+                                @if($book->status == 1)
+                                  <span class="badge bg-primary">Active</span>
+                                @else
+                                  <span class="badge bg-danger">InActive</span>
+                                @endif
+                              </td>
                               <td>{{$book->written_in}}</td>
                               <td class="d-flex">
                                   <a class="btn btn-sm btn-outline-primary" href="{{ route('book.edit' , $book->id) }}" style="margin-right: 10px !important">Edit</a>

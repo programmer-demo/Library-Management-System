@@ -53,7 +53,14 @@
                         </div>
                         <div class="col-6 mt-4">
                             <label for="written_id" class="mb-2">Written In</label>
-                            <input type="datetime-local" id="written_id" name="written_id" required>
+                            <input type="datetime-local" id="written_id" class="form-control" name="written_id" required>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <label for="status" class="mb-2">Status</label>
+                            <select id="status" name="status" class="form-select" required>
+                                <option value="1">Active</option>
+                                <option value="0">inactive</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row text-end mt-4">

@@ -54,7 +54,14 @@
                         </div>
                         <div class="col-6 mt-4">
                             <label for="written_id" class="mb-2">Written In</label>
-                            <input type="datetime-local" id="written_id" name="written_id" value="{{$book->written_in}}" required>
+                            <input type="datetime-local" class="form-control" id="written_id" name="written_id" value="{{$book->written_in}}" required>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <label for="status" class="mb-2">Status</label>
+                            <select id="status" name="status" class="form-select" required>
+                                <option value="1" @if($book->status == 1) selected @endif>Active</option>
+                                <option value="0" @if($book->status == 0) selected @endif>inactive</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row text-end mt-4">

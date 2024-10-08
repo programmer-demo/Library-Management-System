@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Books Page</title>
+    <title>Borrow Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <style>
@@ -30,30 +30,42 @@
             </div>
             <div class="col-9">
               <h5 class="alert alert-success text-center" role="alert">
-                Create Book
+                Create Borrow
               </h5>
               <div class="card card-body">
                 <div class="text-end mb-3">
-                    <a class="btn btn-sm btn-primary" href="{{ route('book.index') }}">Back</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('borrow.index') }}">Back</a>
                 </div>
-                <form action="{{ route('book.store') }}" method="POST">
+                <form action="{{ route('borrow.store') }}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-6">
-                            <label for="barcode" class="mb-2">Bacode</label>
-                            <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Enter Barcode" required>
+                            <label for="student_idcard" class="mb-2">ID Card</label>
+                            <input type="text" class="form-control" id="student_idcard" name="student_idcard" placeholder="Enter ID Card" required>
                         </div>
                         <div class="col-6">
-                            <label for="name" class="mb-2">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" required>
+                            <label for="student_name" class="mb-2">Name</label>
+                            <input type="text" class="form-control" id="student_name" name="student_name" placeholder="Enter Name" required>
                         </div>
                         <div class="col-6 mt-4">
-                            <label for="author" class="mb-2">Author</label>
-                            <input type="text" class="form-control" id="author" name="author" placeholder="Enter Author" required>
+                            <label for="student_gender" class="mb-2">Gender</label>
+                            <select id="student_gender" name="student_gender" class="form-select" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </div>
                         <div class="col-6 mt-4">
-                            <label for="written_id" class="mb-2">Written In</label>
-                            <input type="datetime-local" id="written_id" name="written_id" required>
+                            <label for="student_faculty" class="mb-2">Faculty</label>
+                            <input type="text" class="form-control" id="student_faculty" name="student_faculty" placeholder="Enter Faculty" required>
+                        </div>
+                        <div class="col-6 mt-4">
+                            <label for="book_id" class="mb-2">Book Borrow</label>
+                            <select id="book_id" name="book_id" class="form-select" required>
+                                <option value="0">select</option>
+                                @foreach($books as $index => $book)
+                                    <option value="{{$book->id}}">{{$book->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row text-end mt-4">
