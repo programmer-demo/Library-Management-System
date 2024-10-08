@@ -35,8 +35,13 @@
                 Book Borrow Page
               </h5>
               <div class="card card-body">
-                <div class="text-end mb-3">
-                    <a class="btn btn-sm btn-primary" href="{{ route('borrow.add' , $id) }}">Add New</a>
+                <div class="row mb-3">
+                  <div class="col-6 text-start">
+                      <a class="btn btn-sm btn-primary" href="{{ route('borrow.index') }}">Back</a>
+                  </div>
+                  <div class="col-6 text-end">
+                      <a class="btn btn-sm btn-primary" href="{{ route('borrow.add' , $id) }}">Add New Borrow</a>
+                  </div>
                 </div>
                 @include('alert')
                 <div class="table-responsive">
@@ -60,8 +65,7 @@
                               <td>{{$book->author}}</td>
                               <td>{{$book->written_in}}</td>
                               <td class="d-flex">
-                                  <a class="btn btn-sm btn-outline-primary" href="#" style="margin-right: 10px !important">Refund</a>
-                                
+                                  <a class="btn btn-sm btn-outline-primary" href="{{route('borrow.return' , $id)}}?book_id={{$book->id}}" style="margin-right: 10px !important" onclick="return confirm('Sur ? This Book Will Return')">Refund</a>
                               </td>
                           </tr>
                         @endforeach

@@ -30,34 +30,23 @@
             </div>
             <div class="col-9">
               <h5 class="alert alert-success text-center" role="alert">
-                Edit Borrow
+                Create Borrow
               </h5>
               <div class="card card-body">
                 <div class="text-end mb-3">
-                    <a class="btn btn-sm btn-primary" href="{{ route('borrow.index') }}">Back</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('borrow.show' , $id) }}">Back</a>
                 </div>
-                <form action="{{ route('borrow.update' , $borrow->id) }}" method="POST">
+                <form action="{{ route('borrow.add-submit' , $id) }}" method="POST">
                     @csrf
-                    @method('PUT')
                     <div class="row">
-                        <div class="col-6">
-                            <label for="student_idcard" class="mb-2">ID Card</label>
-                            <input type="text" class="form-control" id="student_idcard" value="{{$borrow->student_idcard}}" name="student_idcard" placeholder="Enter ID Card" required>
-                        </div>
-                        <div class="col-6">
-                            <label for="student_name" class="mb-2">Name</label>
-                            <input type="text" class="form-control" id="student_name" value="{{$borrow->student_name}}" name="student_name" placeholder="Enter Name" required>
-                        </div>
                         <div class="col-6 mt-4">
-                            <label for="student_gender" class="mb-2">Gender</label>
-                            <select id="student_gender" name="student_gender" class="form-select" required>
-                                <option value="Male" @if($borrow->student_gender == 'Male') selected @endif>Male</option>
-                                <option value="Female" @if($borrow->student_gender == 'Female') selected @endif>Female</option>
+                            <label for="book_id" class="mb-2">Book Borrow</label>
+                            <select id="book_id" name="book_id" class="form-select" required>
+                                <option value="0">select</option>
+                                @foreach($books as $index => $book)
+                                    <option value="{{$book->id}}">{{$book->name}}</option>
+                                @endforeach
                             </select>
-                        </div>
-                        <div class="col-6 mt-4">
-                            <label for="student_faculty" class="mb-2">Faculty</label>
-                            <input type="text" class="form-control" id="student_faculty" value="{{$borrow->student_faculty}}" name="student_faculty" placeholder="Enter Faculty" required>
                         </div>
                     </div>
                     <div class="row text-end mt-4">

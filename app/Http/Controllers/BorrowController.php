@@ -22,7 +22,7 @@ class BorrowController extends Controller
      */
     public function create()
     {
-        $books = Book::get();
+        $books = Book::where('status' , true)->get();
         return view('borrows.create' , compact('books'));
     }
 
@@ -46,6 +46,14 @@ class BorrowController extends Controller
             'student_faculty' => $request->student_faculty,
             'book_id' => $request->book_id,
         ]);
+
+        
+        $book = Book::find($request->book_id);
+        $book->update([
+            'borrow_id' => $borrow->id,
+            'status' => false
+        ]);
+
         return redirect()->route('borrow.index')->with('success' , 'Student is Borrow Successfully');
     }
 
@@ -77,7 +85,6 @@ class BorrowController extends Controller
             'student_name' => 'required',
             'student_gender' => 'required',
             'student_faculty' => 'required',
-            'book_id' => 'required',
         ]);
 
         $borrow = Borrow::find($id);
@@ -86,8 +93,8 @@ class BorrowController extends Controller
             'student_name' => $request->student_name,
             'student_gender' => $request->student_gender,
             'student_faculty' => $request->student_faculty,
-            'book_id' => $request->book_id,
         ]);
+
         return redirect()->route('borrow.index')->with('success' , 'Updated Successfully');
     }
 
@@ -97,18 +104,36 @@ class BorrowController extends Controller
     public function destroy(string $id)
     {
         $borrow = Borrow::find($id);
+        if($borrow){
+            $borrow->delete();
+        }
         return redirect()->route('borrow.index')->with('success' , 'Deleted Successfully');
     }
 
-    public function add(Request $request ,$id){
+    public function add($id){
+        $books = Book::where('status' , true)->get();
+        return view('borrows.add' , compact('id' , 'books'));
+    }
+
+    public function add_submit(Request $request ,$id){
         $request->validate([
             'book_id' => 'required',
         ]);
 
-        $book = Book::find($id);
-        $book->borrow_id = $id;
-        $book->status = false;
-        $book->save();
+        $book = Book::find($request->book_id);
+        $book->update([
+            'borrow_id' => $id,
+            'status' => false,
+        ]);
+        return redirect()->route('borrow.show' , $id)->with('success' , 'Student is Borrow Successfully');
+    }
+
+    public function return($id , Request $request){
+        $book = Book::find($request->book_id);
+        $book->update([
+            'borrow_id' => 0,
+            'status' => true,
+        ]);
         return redirect()->route('borrow.show' , $id)->with('success' , 'Student is Borrow Successfully');
     }
 }

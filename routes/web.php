@@ -21,5 +21,8 @@ use Illuminate\Support\Facades\Route;
     Route::resource('/book' , BookController::class);
     Route::resource('/borrow' , BorrowController::class);
     Route::get('/borrow/add/{id}' , [BorrowController::class , 'add'])->name('borrow.add');
+    Route::post('/borrow/add-submit/{id}' , [BorrowController::class , 'add_submit'])->name('borrow.add-submit');
+    
+    Route::get('/borrow/return/{id}' , [BorrowController::class , 'return'])->name('borrow.return');
 
 
