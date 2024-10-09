@@ -13,7 +13,7 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        $borrows = Borrow::get();
+        $borrows = Borrow::paginate(10);
         return view('borrows.index' , compact('borrows'));
     }
 
@@ -49,6 +49,7 @@ class BorrowController extends Controller
 
         
         $book = Book::find($request->book_id);
+
         $book->update([
             'borrow_id' => $borrow->id,
             'status' => false
@@ -62,7 +63,7 @@ class BorrowController extends Controller
      */
     public function show(string $id)
     {
-        $books = Book::where('borrow_id' , $id)->get();
+        $books = Book::where('borrow_id' , $id)->paginate(10);
         return view('borrows.show' , compact('books' , 'id'));
     }
 

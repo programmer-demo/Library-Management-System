@@ -74,6 +74,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                    {{ $borrows->links() }}
                   </div>
               </div>
             </div>

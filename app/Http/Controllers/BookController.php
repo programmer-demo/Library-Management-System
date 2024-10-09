@@ -12,7 +12,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::get();
+        $books = Book::paginate(10);
         return view('books.index' , compact('books'));
     }
 
@@ -39,11 +39,12 @@ class BookController extends Controller
         $datetime = date('d-m-y H:i:s' , $request->written_in);
 
         $book = Book::create([
+            'borrow_id' => 0,
             'barcode' => $request->barcode,
             'name' => $request->name,
             'author' => $request->author,
             'written_in' => $datetime,
-            'active' => $request->status,
+            'status' =>  $request->status,
         ]);
 
         return redirect()->route('book.index')->with('success' , 'Book Created Successfully');
@@ -89,6 +90,7 @@ class BookController extends Controller
             'author' => $request->author,
             'written_in' => $datetime,
             'status' => $request->status,
+            'borrow_id' => $book->borrow_id,
         ]);
 
         return redirect()->route('book.index')->with('success' , 'Book Updated Successfully');

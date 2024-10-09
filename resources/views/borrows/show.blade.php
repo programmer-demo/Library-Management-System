@@ -53,6 +53,7 @@
                           <th scope="col">Name</th>
                           <th scope="col">Author</th>
                           <th scope="col">Written In</th>
+                          <th scope="col">Student Name</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
@@ -64,6 +65,7 @@
                               <td>{{ $book->name }}</td>
                               <td>{{$book->author}}</td>
                               <td>{{$book->written_in}}</td>
+                              <td>{{$book->borrow->student_name}}</td>
                               <td class="d-flex">
                                   <a class="btn btn-sm btn-outline-primary" href="{{route('borrow.return' , $id)}}?book_id={{$book->id}}" style="margin-right: 10px !important" onclick="return confirm('Sur ? This Book Will Return')">Refund</a>
                               </td>
@@ -71,6 +73,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                    {{ $books->links() }}
                   </div>
               </div>
             </div>
