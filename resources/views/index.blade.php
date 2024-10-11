@@ -31,6 +31,9 @@
             <div class="col-9">
               <h5 class="alert alert-success text-center" role="alert">
                 Home Page
+                <button type="button" class="btn btn-success position-absolute top-50 end-0 translate-middle-y h-100" >
+                  Add
+                </button>
               </h5>
                             {{-- Create slider pichur by khat luch --}}
               
