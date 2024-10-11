@@ -106,6 +106,10 @@ class BorrowController extends Controller
     {
         $borrow = Borrow::find($id);
         if($borrow){
+            foreach($borrow->book as $book){
+                $book->status = true;
+                $book->save();
+            }
             $borrow->delete();
         }
         return redirect()->route('borrow.index')->with('success' , 'Deleted Successfully');
