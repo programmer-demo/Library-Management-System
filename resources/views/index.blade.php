@@ -25,10 +25,10 @@
             <x-header partitle=""/>
         </div>
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <x-nav-bar partitle="Navigation Bar" parclass="alert alert-primary text-center"/>
             </div>
-            <div class="col-9">
+            <div class="col-10">
               <h5 class="alert alert-success text-center" role="alert">
                 Home Page
                 <button type="button" class="btn btn-success position-absolute top-50 end-0 translate-middle-y h-100" >
