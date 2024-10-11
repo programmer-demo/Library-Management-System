@@ -73,7 +73,8 @@
                         @endforeach
                       </tbody>
                     </table>
-                    {{ $books->links() }}
+                    <!-- {{ $books->links() }} -->
+                    {{ $books->links('pagination::bootstrap-4') }} <!-- Use Bootstrap 4 style -->
                   </div>
               </div>
             </div>

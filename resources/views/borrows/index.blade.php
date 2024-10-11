@@ -74,7 +74,9 @@
                         @endforeach
                       </tbody>
                     </table>
-                    {{ $borrows->links() }}
+                    <!-- {{ $borrows->links() }} -->
+                      
+                    {{ $borrows->links('pagination::bootstrap-4') }} <!-- Use Bootstrap 4 style -->
                   </div>
               </div>
             </div>

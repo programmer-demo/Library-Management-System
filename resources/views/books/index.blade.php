@@ -79,7 +79,10 @@
                         @endforeach
                       </tbody>
                     </table>
-                    {{ $books->links() }}
+                    <!-- {{ $books->links() }} -->
+                    <nav aria-label="Page navigation">
+                      {{ $books->links('pagination::bootstrap-4') }} <!-- Use Bootstrap 4 style -->
+                  </nav>
                   </div>
               </div>
             </div>
