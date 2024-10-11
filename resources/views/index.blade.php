@@ -31,7 +31,62 @@
             <div class="col-9">
               <h5 class="alert alert-success text-center" role="alert">
                 Home Page
+                <button type="button" class="btn btn-success position-absolute top-50 end-0 translate-middle-y h-100" >
+                  Add
+                </button>
               </h5>
+                            {{-- Create slider pichur by khat luch --}}
+              
+                            <div id="carouselExampleIndicators" class="carousel slide">
+                              <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                              </div>
+                              <div class="carousel-inner bg-danger " >
+                      
+                    
+                                    {{-- <img src="{{asset('images/chanrith.jpg')}}" class="d-block w-100 carousel-item active" alt="..." >
+                                    <img src="{{asset('images/luch.jpg')}}" class="d-block w-100 carousel-item" alt="..."> --}}
+                                    {{-- <img src="{{asset('images/bona.jpg')}}" class="d-block w-100 carousel-item" alt="...">
+                                    <img src="{{asset('images/arn.jpg')}}" class="d-block w-100 carousel-item" alt="...">
+                                    <img src="{{asset('images/visal.jpg')}}" class="d-block w-100 carousel-item" alt="..."> --}}
+                                    {{-- <img src="{{asset('images/sokpheak.jpg')}}" class="d-block w-100 carousel-item" alt="..."> --}}
+              
+                                <div class="carousel-item active " id="AutoSlide" >
+                                  <img src="{{asset('images/chanrith.jpg')}}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{asset('images/luch.jpg')}}" class="d-block w-100" alt="...">
+                                </div> 
+                                <div class="carousel-item">
+                                  <img src="{{asset('images/arn.jpg')}}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{asset('images/bona.jpg')}}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{asset('images/visal.jpg')}}" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                  <img src="{{asset('images/sokpheak.jpg')}}" class="d-block w-100" alt="...">
+                                </div>
+                                
+                              </div>
+                              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            
+                          </div>
+              
             </div>
         </div>
         <div class="row bottom-bar">
