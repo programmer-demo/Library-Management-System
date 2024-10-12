@@ -18,6 +18,18 @@
         z-index: 1030;
         font-family:Khmer os battambang;
     }
+    
+   .bl{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(200, 255, 237);
+    /* background:url(https://media.istockphoto.com/id/1404674470/photo/abstract-gradian-blue-for-background.jpg?b=1&s=612x612&w=0&k=20&c=NT4BPyfMDBxC5QMZ06KHooTG_Jhi-bpZWVMltU2fy9s=); */
+   }
+    .image{
+      height: 50%;
+      width: 50%;
+      margin: 0px auto;
+    }
   </style>
   <body>
     <div class="container-fluid">
@@ -38,7 +50,7 @@
                             {{-- Create slider pichur by khat luch --}}
 
                             <div id="carouselExampleIndicators" class="carousel slide">
-                              <div class="carousel-indicators">
+                              <div class="carousel-indicators ">
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -46,7 +58,7 @@
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
                               </div>
-                              <div class="carousel-inner bg-danger " >
+                              <div class="carousel-inner  bl" >
 
 
                                     {{-- <img src="{{asset('images/chanrith.jpg')}}" class="d-block w-100 carousel-item active" alt="..." >
@@ -56,23 +68,23 @@
                                     <img src="{{asset('images/visal.jpg')}}" class="d-block w-100 carousel-item" alt="..."> --}}
                                     {{-- <img src="{{asset('images/sokpheak.jpg')}}" class="d-block w-100 carousel-item" alt="..."> --}}
 
-                                <div class="carousel-item active d-flex justify-content-center align-items-center" id="AutoSlide" style="background-image: url('{{ asset('images/chanrith.jpg') }}') !important">
-                                  <img src="{{asset('images/chanrith.jpg')}}" class="d-block" alt="..." style="width: 70% !important">
+                                <div class="carousel-item active  " id="AutoSlide" >
+                                  <img src="{{asset('images/chanrith.jpg')}}" class="d-block image" alt="...">
                                 </div>
-                                <div class="carousel-item" style="background-image: url('{{ asset('images/luch.jpg') }}') !important">
-                                  <img src="{{asset('images/luch.jpg')}}" class="d-block w-100" alt="..." style="width: 70% !important">
+                                <div class="carousel-item  ">
+                                  <img src="{{asset('images/luch.jpg')}}" class="d-block  image" alt="..." >
                                 </div>
-                                <div class="carousel-item" style="background-image: url('{{ asset('images/arn.jpg') }}') !important">
-                                  <img src="{{asset('images/arn.jpg')}}" class="d-block w-100" alt="..." style="width: 70% !important">
+                                <div class="carousel-item">
+                                  <img src="{{asset('images/arn.jpg')}}" class="d-block  image" alt="..." >
                                 </div>
-                                <div class="carousel-item" style="background-image: url('{{ asset('images/bona.jpg') }}') !important">
-                                  <img src="{{asset('images/bona.jpg')}}" class="d-block w-100" alt="..." style="width: 70% !important">
+                                <div class="carousel-item" >
+                                  <img src="{{asset('images/bona.jpg')}}" class="d-block  image" alt="..." >
                                 </div>
-                                <div class="carousel-item" style="background-image: url('{{ asset('images/visal.jpg') }}') !important">
-                                  <img src="{{asset('images/visal.jpg')}}" class="d-block w-100" alt="..." style="width: 70% !important">
+                                <div class="carousel-item" >
+                                  <img src="{{asset('images/visal.jpg')}}" class="d-block  image" alt="..." >
                                 </div>
-                                <div class="carousel-item" style="background-image: url('{{ asset('images/sokpheak.jpg') }}') !important">
-                                  <img src="{{asset('images/sokpheak.jpg')}}" class="d-block w-100" alt="..." style="width: 70% !important">
+                                <div class="carousel-item" >
+                                  <img src="{{asset('images/sokpheak.jpg')}}" class="d-block  image" alt="..." >
                                 </div>
 
                               </div>
@@ -89,7 +101,7 @@
 
             </div>
         </div>
-        <div class="row">
+        <div class="row bottom-bar">
             <x-footer designer="សឿក ចាន់រិទ្ធ , អ៊ាង អាន , ខាត់ លុច , ចៅ សុភ័ក្រ្ត , ងឿម ប៊ុនណា , អឿន វិសាល" year="Room404" class="alert alert-info text-center"/>
         </div>
     </div>
