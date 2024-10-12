@@ -10,7 +10,7 @@ class Student extends Model
 {
     use HasFactory,SoftDeletes;
     protected $fillable = [
-        'name','gender','dob','pob','phone','library_id'
+        'name','gender','dob','pob','phone', 'faculty' , 'id_card' , 'library_id'
     ];
 
     public function book(){

@@ -13,6 +13,6 @@ class Library extends Model
         'student_id','checkout_date'
     ];
     public function student(){
-        return $this->hasMany(Student::class);
+        return $this->belongsTo(Student::class);
     }
 }

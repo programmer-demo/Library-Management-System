@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BorrowController;
+use App\Http\Controllers\LibraryController;
 use Illuminate\Support\Facades\Route;
 
     Route::get('/login' , [LoginController::class , 'index'])->name('login');
@@ -22,7 +23,8 @@ use Illuminate\Support\Facades\Route;
     Route::resource('/borrow' , BorrowController::class);
     Route::get('/borrow/add/{id}' , [BorrowController::class , 'add'])->name('borrow.add');
     Route::post('/borrow/add-submit/{id}' , [BorrowController::class , 'add_submit'])->name('borrow.add-submit');
-    
+
     Route::get('/borrow/return/{id}' , [BorrowController::class , 'return'])->name('borrow.return');
+    Route::resource('/library' , LibraryController::class);
 
 

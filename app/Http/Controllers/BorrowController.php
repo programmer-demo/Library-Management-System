@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\Borrow;
 use App\Models\Book;
@@ -23,7 +24,8 @@ class BorrowController extends Controller
     public function create()
     {
         $books = Book::where('status' , true)->get();
-        return view('borrows.create' , compact('books'));
+        $students = Student::get();
+        return view('borrows.create' , compact('books','students'));
     }
 
     /**
@@ -32,22 +34,24 @@ class BorrowController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'student_idcard' => 'required',
+            // 'student_idcard' => 'required',
             'student_name' => 'required',
-            'student_gender' => 'required',
-            'student_faculty' => 'required',
+            // 'student_gender' => 'required',
+            // 'student_faculty' => 'required',
             'book_id' => 'required',
         ]);
 
+        $student = Student::find($request->student_name);
+
         $borrow = Borrow::create([
-            'student_idcard' => $request->student_idcard,
-            'student_name' => $request->student_name,
-            'student_gender' => $request->student_gender,
-            'student_faculty' => $request->student_faculty,
+            'student_idcard' => $student->id_card,
+            'student_name' => $student->name,
+            'student_gender' => $student->gender,
+            'student_faculty' => $student->faculty,
             'book_id' => $request->book_id,
         ]);
 
-        
+
         $book = Book::find($request->book_id);
 
         $book->update([

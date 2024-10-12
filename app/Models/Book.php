@@ -13,9 +13,9 @@ class Book extends Model
         'name', 'barcode' , 'author' , 'written_in' , 'borrow_id' ,  'status'
     ];
 
-    public function bookType(){
-        return $this->belongsTo(BookType::class);
-    }
+    // public function bookType(){
+    //     return $this->belongsTo(BookType::class);
+    // }
 
     public function author(){
         return $this->hasMany(Author::class);
