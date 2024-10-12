@@ -89,7 +89,7 @@
               
             </div>
         </div>
-        <div class="row bottom-bar">
+        <div class="row">
             <x-footer designer="សឿក ចាន់រិទ្ធ , អ៊ាង អាន , ខាត់ លុច , ចៅ សុភ័ក្រ្ត , ងឿម ប៊ុនណា , អឿន វិសាល" year="Room404" class="alert alert-info text-center"/>
         </div>
     </div>
