@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Home Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylsheet">
+</head>
   <style>
     .bottom-bar {
         position: fixed;
@@ -18,7 +19,7 @@
         z-index: 1030;
         font-family:Khmer os battambang;
     }
-    
+
    .bl{
     width: 100%;
     height: 100%;
@@ -29,7 +30,7 @@
       height: 50%;
       width: 50%;
       margin: 0px auto;
-     
+
     }
   </style>
   <body>
@@ -99,7 +100,10 @@
                               </button>
 
                           </div>
-
+                          <div class="text-center mt-4">
+                            <i class="fa fa-house-user"></i>
+                            <a class="btn btn-lg btn-primary" href="{{ route('library.create') }}">Checkin</a>
+                        </div>
             </div>
         </div>
         <div class="row bottom-bar bg-info mx-auto p-2 fs-4"   style="height: 50px;">
