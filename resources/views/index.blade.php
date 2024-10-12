@@ -29,7 +29,6 @@
       height: 50%;
       width: 50%;
       margin: 0px auto;
-     
     }
   </style>
   <body>
@@ -42,7 +41,7 @@
                 <x-nav-bar partitle="Navigation Bar" parclass="alert alert-primary text-center"/>
             </div>
             <div class="col-10">
-              <h5 class="alert alert-success text-center" role="alert">
+              <h5 class="alert alert-info text-center" role="alert">
                 Home Page
                 {{--  <button type="button" class="btn btn-success position-absolute top-50 end-0 translate-middle-y h-100" >
                   Add
@@ -104,7 +103,7 @@
         </div>
         <div class="row bottom-bar bg-info mx-auto p-2 fs-4"   style="height: 50px;">
           <marquee behavior="" direction="">
-            <x-footer designer="សឿក ចាន់រិទ្ធ , អ៊ាង អាន , ខាត់ លុច , ចៅ សុភ័ក្រ្ត , ងឿម ប៊ុនណា , អឿន វិសាល" year="Room404" class="alert  text-center"/>
+            <x-footer designer="សឿក ចាន់រិទ្ធ , អ៊ាង អាន , ខាត់ លុច , ចៅ សុភ័ក្រ្ត , ងឿម ប៊ុនណា , អឿន វិសាល" year="Room404" class="alert text-center text-white"/>
           </marquee>
         </div>
     </div>

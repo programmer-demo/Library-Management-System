@@ -1,4 +1,4 @@
 
-<h3 class="alert bg-success bg-gradient text-white text-center fs-1" role="alert">
+<h3 class="alert bg-info text-white text-center fs-1" role="alert">
     Library Management System {{ $title }}
 </h3>
