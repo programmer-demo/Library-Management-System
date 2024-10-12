@@ -34,7 +34,7 @@
               </h5>
               <div class="card card-body">
                 <div class="text-end mb-3">
-                    <a class="btn btn-sm btn-primary" href="{{ route('library.index') }}">Back</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('index') }}">Back</a>
                 </div>
                 <form action="{{ route('library.store') }}" method="POST">
                     @csrf

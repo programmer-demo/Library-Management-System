@@ -27,7 +27,7 @@
     /* background:url(https://media.istockphoto.com/id/1404674470/photo/abstract-gradian-blue-for-background.jpg?b=1&s=612x612&w=0&k=20&c=NT4BPyfMDBxC5QMZ06KHooTG_Jhi-bpZWVMltU2fy9s=); */
    }
    .icon{
-    width: 53px;
+    width: 30px !important;
    }
     .image{
       height: 50%;
@@ -104,8 +104,10 @@
                           </div>
                           <div class="d-flex justify-content-center align-items-center gap-1 mt-4">
                             {{-- <i class="fa fa-house-user"></i> --}}
-                            <img src="{{asset('images/check-in.png')}}" class="d-block  icon" alt="..." > 
-                            <a class="btn btn-lg btn-primary" href="{{ route('library.create') }}">Checkin</a>
+                            <a class="btn btn-lg btn-primary d-flex" href="{{ route('library.create') }}">
+                                <div class="" style="margin-right: 10px !important"><img src="{{asset('images/check-in.png')}}" class="d-block icon" alt="..."></div>
+                                <div class="fw-bold">Checkin</div>
+                            </a>
                         </div>
             </div>
         </div>
