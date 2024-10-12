@@ -72,10 +72,10 @@
                                     <img src="{{asset('images/visal.jpg')}}" class="d-block w-100 carousel-item" alt="..."> --}}
                                     {{-- <img src="{{asset('images/sokpheak.jpg')}}" class="d-block w-100 carousel-item" alt="..."> --}}
 
-                                <div class="carousel-item active  " id="AutoSlide" >
+                                <div class="carousel-item active" id="AutoSlide" >
                                   <img src="{{asset('images/chanrith.jpg')}}" class="d-block image" alt="...">
                                 </div>
-                                <div class="carousel-item  ">
+                                <div class="carousel-item ">
                                   <img src="{{asset('images/luch.jpg')}}" class="d-block  image" alt="..." >
                                 </div>
                                 <div class="carousel-item">
@@ -96,7 +96,7 @@
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                               </button>
-                              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                              <button class="carousel-control-next" id="next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden ">Next</span>
                               </button>
@@ -117,6 +117,14 @@
           </marquee>
         </div>
     </div>
+    <script>
+        var btnNext = document.getElementById('next');
+        let i=0;
+        setInterval(function() {
+            i = i < 6 -1 ? i + 1 : 0;
+            btnNext.click();
+        }, 3000);
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
