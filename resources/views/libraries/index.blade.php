@@ -35,9 +35,9 @@
                 Library Page
               </h5>
               <div class="card card-body">
-                {{--  <div class="text-end mb-3">
+                <div class="text-end mb-3">
                     <a class="btn btn-sm btn-primary" href="{{ route('library.create') }}">Checkin</a>
-                </div>  --}}
+                </div>
                 @include('alert')
                 <div class="table-responsive">
                   <table class="table table-striped table-hover">
