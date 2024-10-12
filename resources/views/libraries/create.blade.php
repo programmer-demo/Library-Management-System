@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Borrow Page</title>
+    <title>Library Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <style>
@@ -30,16 +30,16 @@
             </div>
             <div class="col-9">
               <h5 class="alert alert-success text-center" role="alert">
-                Create Borrow
+                Student Checkin
               </h5>
               <div class="card card-body">
                 <div class="text-end mb-3">
-                    <a class="btn btn-sm btn-primary" href="{{ route('borrow.index') }}">Back</a>
+                    <a class="btn btn-sm btn-primary" href="{{ route('library.index') }}">Back</a>
                 </div>
-                <form action="{{ route('borrow.store') }}" method="POST">
+                <form action="{{ route('library.store') }}" method="POST">
                     @csrf
                     <div class="row">
-                        {{--  <div class="col-6">
+                        <div class="col-6">
                             <label for="student_idcard" class="mb-2">ID Card</label>
                             <input type="text" class="form-control" id="student_idcard" name="student_idcard" placeholder="Enter ID Card" required>
                         </div>
@@ -57,24 +57,6 @@
                         <div class="col-6 mt-4">
                             <label for="student_faculty" class="mb-2">Faculty</label>
                             <input type="text" class="form-control" id="student_faculty" name="student_faculty" placeholder="Enter Faculty" required>
-                        </div>  --}}
-                        <div class="col-6 mt-4">
-                            <label for="student_name" class="mb-2">Student</label>
-                            <select id="student_name" name="student_name" class="form-select" required>
-                                <option value="0">select</option>
-                                @foreach($students as $index => $student)
-                                    <option value="{{$student->id}}">{{$student->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-6 mt-4">
-                            <label for="book_id" class="mb-2">Book Borrow</label>
-                            <select id="book_id" name="book_id" class="form-select" required>
-                                <option value="0">select</option>
-                                @foreach($books as $index => $book)
-                                    <option value="{{$book->id}}">{{$book->name}}</option>
-                                @endforeach
-                            </select>
                         </div>
                     </div>
                     <div class="row text-end mt-4">
