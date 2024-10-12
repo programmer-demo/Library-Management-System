@@ -30,7 +30,7 @@
             </div>
             <div class="col-9">
               <h5 class="alert alert-success text-center" role="alert">
-                Create User
+                Edit User
               </h5>
               <div class="card card-body">
                 <div class="text-end mb-3">
