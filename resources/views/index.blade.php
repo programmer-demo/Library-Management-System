@@ -95,12 +95,13 @@
                               </button>
                               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
+                                <span class="visually-hidden ">Next</span>
                               </button>
 
                           </div>
                           <div class="text-center mt-4">
-                            <i class="fa fa-house-user"></i>
+                            {{-- <i class="fa fa-house-user"></i> --}}
+                            <img src="{{asset('images/check-in.png')}}" class="d-block  icon" alt="..." > 
                             <a class="btn btn-lg btn-primary" href="{{ route('library.create') }}">Checkin</a>
                         </div>
             </div>
