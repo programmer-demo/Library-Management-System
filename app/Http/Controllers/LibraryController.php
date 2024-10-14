@@ -42,6 +42,7 @@ class LibraryController extends Controller
             'name' => $request->student_name,
             'gender' => $request->student_gender,
             'faculty' => $request->student_faculty,
+            'library_id' => 0,
         ]);
         $library = Library::create([
             'student_id' => $student->id,
