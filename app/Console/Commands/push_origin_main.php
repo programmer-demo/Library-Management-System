@@ -25,7 +25,7 @@ class push_origin_main extends Command
      */
     public function handle()
     {
-        $output = shell_exec('git pull origin main 2>&1');
+        $output = shell_exec('git addd --all;git commit -m "update from server";git pull origin main 2>&1');
         $this->info($output);
     }
 }
