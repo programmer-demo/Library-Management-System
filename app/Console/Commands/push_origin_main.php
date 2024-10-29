@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Symfony\Component\Process\Process;
 
 class push_origin_main extends Command
 {
@@ -25,7 +26,37 @@ class push_origin_main extends Command
      */
     public function handle()
     {
-        $output = shell_exec('git addd --all;git commit -m "update from server";git pull origin main 2>&1');
-        $this->info($output);
+        // Define a fixed commit message
+        $commitMessage = 'update from server';
+
+        // Define the commands to run
+        $commands = [
+            ['git', 'add', '--all'],
+            ['git', 'commit', '-m', $commitMessage],
+            ['git', 'push', 'origin', 'main'],
+        ];
+
+        // Execute each command
+        foreach ($commands as $command) {
+            $process = new Process($command);
+            $process->setWorkingDirectory(base_path()); // Ensure it runs in the project root
+
+            $process->run();
+
+            // Check if the process was successful
+            if (!$process->isSuccessful()) {
+                $this->error("Error: " . $process->getErrorOutput());
+                return; // Exit on error
+            } else {
+                // Use `getOutput()` which returns a string
+                $output = $process->getOutput();
+                if (is_array($output)) {
+                    $output = implode("\n", $output); // Convert to string if somehow it's an array
+                }
+                $this->info($output);
+            }
+        }
+
+        $this->info('Changes pushed to the main branch successfully.');
     }
 }
